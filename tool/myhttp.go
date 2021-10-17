@@ -14,7 +14,7 @@ import (
 func makeHttpRequest(req <-chan string, res chan<- bool) {
 	for url := range req {
 		if !strings.HasPrefix(url, "http") {
-			url = "https://" + url
+			url = "http://" + url
 		}
 		resp, err := http.Get(url)
 		if err != nil {
